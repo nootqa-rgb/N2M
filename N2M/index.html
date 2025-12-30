@@ -1,1 +1,208 @@
 
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nomade2Makkah (N2M) — Demande d’accompagnement</title>
+
+  <style>
+    :root{
+      --bg1:#0f1420;
+      --bg2:#141c2b;
+      --card:#0f1726cc;
+      --stroke:#ffffff1f;
+      --text:#e9eefc;
+      --muted:#c7d0ea;
+      --gold1:#f4d38a;
+      --gold2:#cfa34a;
+      --btn:#ffffff14;
+      --btnStroke:#ffffff2b;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 20% 0%, #1b2540 0%, transparent 55%),
+        radial-gradient(900px 600px at 90% 20%, #2a2b23 0%, transparent 55%),
+        linear-gradient(180deg,var(--bg1),var(--bg2));
+    }
+
+    .wrap{max-width:1100px;margin:0 auto;padding:18px 16px 40px}
+    .top{
+      display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+      margin-bottom:14px;
+    }
+    .brand{
+      font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.9rem;
+    }
+    .brand small{display:block;font-weight:600;letter-spacing:.04em;text-transform:none;color:var(--muted);opacity:.9;margin-top:2px}
+    /* On retire l’affichage du numéro en haut : pas de bloc contact ici */
+
+    .hero{
+      display:grid;grid-template-columns:1.4fr .9fr;gap:14px;
+    }
+    @media(max-width:900px){ .hero{grid-template-columns:1fr} }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--stroke);
+      border-radius:16px;
+      box-shadow:0 18px 40px rgba(0,0,0,.35);
+      padding:16px;
+      backdrop-filter: blur(10px);
+    }
+
+    h1{margin:0 0 8px 0;font-size:1.25rem}
+    p{margin:0;color:var(--muted);line-height:1.45}
+
+    .btnRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:10px 14px;border-radius:999px;
+      border:1px solid var(--btnStroke);
+      background:var(--btn);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:700;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn.primary{
+      border:none;
+      background:linear-gradient(135deg,var(--gold1),var(--gold2));
+      color:#231a07;
+      box-shadow:0 10px 24px rgba(207,163,74,.25);
+    }
+
+    .sectionTitle{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+      font-size:.78rem;margin:14px 0 8px;color:#e9eefc;
+      opacity:.95;
+    }
+
+    /* Zone iframe Tally */
+    .formShell{
+      background:linear-gradient(180deg,#0b1220cc,#0b1220aa);
+      border:1px solid var(--stroke);
+      border-radius:18px;
+      overflow:hidden; /* joli cadre */
+    }
+    .formHead{
+      padding:12px 14px;
+      border-bottom:1px solid var(--stroke);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .iframeWrap{
+      /* IMPORTANT: pas de hauteur fixe */
+      padding:0;
+    }
+    iframe{
+      width:100%;
+      border:0;
+      display:block;
+      /* Hauteur de base (auto-resize va ajuster ensuite) */
+      min-height: 1200px;
+      background:transparent;
+    }
+
+    .footer{
+      margin-top:12px;
+      text-align:center;
+      color:var(--muted);
+      font-size:.78rem;
+      opacity:.9;
+    }
+
+    /* Bonus: sur mobile, on évite que ça se sente “serré” */
+    @media(max-width:520px){
+      .wrap{padding:14px 12px 34px}
+      iframe{min-height: 1400px;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        NOMADE2MAKKAH (N2M)
+        <small>Accompagnement • ʿUmrah • La Mecque & Médine</small>
+      </div>
+      <!-- on ne met PLUS le numéro affiché ici -->
+    </div>
+
+    <div class="hero">
+      <div class="card">
+        <h1>Demande d’accompagnement – ʿUmrah</h1>
+        <p>
+          Un accompagnement spirituel et pratique à la ʿUmrah, réalisé avec bienveillance et sérieux.
+          Nos guides prennent le temps de vous accompagner pas à pas, en respectant votre rythme,
+          vos besoins et votre situation, afin de vivre votre ʿUmrah avec sérénité.
+        </p>
+
+        <div class="btnRow">
+          <a class="btn primary" href="#formulaire">Remplir le formulaire</a>
+          <a class="btn" id="waBtn" href="#" rel="noopener">Nous écrire sur WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="sectionTitle">Fonctionnement</div>
+        <p>
+          Après réception, un membre de l’équipe vous contactera afin de finaliser la réservation et les détails
+          (options, horaires, tarifs).
+        </p>
+      </div>
+    </div>
+
+    <div id="formulaire" class="sectionTitle" style="margin-top:18px;">Formulaire de demande</div>
+
+    <div class="formShell">
+      <div class="formHead">
+        Merci de remplir les informations ci-dessous. Nous reviendrons vers vous rapidement.
+      </div>
+
+      <div class="iframeWrap">
+        <!-- Embed “propre” Tally (auto resize) -->
+        <iframe
+          id="tallyFrame"
+          data-tally-src="https://tally.so/r/44B5gY?transparentBackground=1"
+          loading="lazy"
+          title="Formulaire Nomade2Makkah">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2025 Nomade2Makkah (N2M) — usage personnel uniquement — reproduction et partage interdits.
+    </div>
+  </div>
+
+  <!-- Script officiel Tally pour auto-resize de l’iframe -->
+  <script async src="https://tally.so/widgets/embed.js"></script>
+
+  <script>
+    // 1) Mets TON numéro ici (sans +, sans espace)
+    const WHATSAPP_NUMBER = "966563885402"; // <-- À REMPLACER (ex: 966501234567)
+
+    // 2) Message pré-rempli (tu peux modifier)
+    const WHATSAPP_TEXT = encodeURIComponent(
+      "Salam alaykoum, je souhaite des informations pour un accompagnement à la ʿUmrah (Nomade2Makkah)."
+    );
+
+    // Lien WhatsApp correct
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_TEXT}`;
+    const waBtn = document.getElementById("waBtn");
+    waBtn.href = waUrl;
+
+    // Petit confort : si Tally met du “fond blanc”, le param transparentBackground aide.
+    // (Le “Made with Tally” dépend de Tally, on ne peut pas toujours le supprimer sans plan payant.)
+  </script>
+</body>
+</html>
